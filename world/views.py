@@ -3,18 +3,13 @@ from models import WorldBorder
 from forms import PointForm, WorldBorderForm
 
 def index(request):
-    all_borders = WorldBorder.objects.all()
-    mpoly_list = []
-    for border in all_borders:
-        mpoly_list.append(border.mpoly)
+    # mpoly_list = [border.mpoly for border in WorldBorder.objects.all()]
+    # return HttpResponse(single_mpoly)
 
     form = WorldBorderForm()
-
     single_mpoly = WorldBorder.objects.get(id=1).mpoly
-
     return render(request, 'index.html', {'mpoly': single_mpoly,
                                           'form': form})
-    # return HttpResponse(single_mpoly)
 
 
 def get_point(request):
