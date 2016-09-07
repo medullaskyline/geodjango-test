@@ -2,9 +2,8 @@ from django.shortcuts import render, HttpResponseRedirect, HttpResponse
 from models import WorldBorder
 from forms import PointForm, WorldBorderForm
 
+
 def index(request):
-    # mpoly_list = [border.mpoly for border in WorldBorder.objects.all()]
-    # return HttpResponse(single_mpoly)
 
     form = WorldBorderForm()
     single_mpoly = WorldBorder.objects.get(id=1).mpoly
